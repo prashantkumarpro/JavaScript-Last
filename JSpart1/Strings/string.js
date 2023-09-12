@@ -38,4 +38,4 @@ console.log(url.replace('%20','-'));
 
 
 console.log(url.includes('prshant'));//false
-console.log(gameName.split("-"))//[ 'Prashant', 'pr' ]
+// console.log(gameName.split("-"))//[ 'Prashant', 'pr' ]
