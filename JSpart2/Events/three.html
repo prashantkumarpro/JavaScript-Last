@@ -1,22 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <h1>Chai aur Javascript</h1>
     <button id="start">Start</button>
     <button id="stop">Stop</button>
+
+    <div class="countDown">
+        <h1>Count Down</h1>
+        <label for="minutes">Minute:
+            <select name="minutes" id="minutes">
+                <option value="select" disabled>select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </label>
+        <label for="seconds">Second:
+            <select name="seconds" id="second">
+                <option value="select" disabled>select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </label>
+      
+    </div>
 </body>
 <script>
-    const sayDate = function(str){
-        console.log(str, Date.now());
+
+
+    const sayDate = function (str) {
+        let now = new Date();
+        let localTime = now.toLocaleTimeString();
+        console.log(str, localTime)
     }
+    let myInterval;
+    const startBtn = document.getElementById('start');
+    startBtn.addEventListener('click', () => {
+        myInterval = setInterval(sayDate, 1000, "Now time is")
+    })
 
-    const intervalId = setInterval(sayDate, 1000, "hi")
+    const stopBtn = document.getElementById('stop');
+    stopBtn.addEventListener('click', () => {
+        clearInterval(myInterval)
+    })
 
-    clearInterval(intervalId)
+
+
+
 </script>
+
 </html>
